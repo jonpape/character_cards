@@ -29,12 +29,14 @@
         <p class="card-text">{{ character.appreciation }}</p>
         <h5>Favorite movie or TV character:</h5>
         <p class="card-text">{{ character.favorite_character }}</p>
+        {% if user.is_authenticated %}
         <a href="{% url 'character_update' character.id %}" class="btn btn-warning rounded-1">
           Edit
         </a>
         <a href="{% url 'character_delete' character.id %}" class="btn btn-danger rounded-1">
           Delete
         </a>
+        {% endif %}
         <p class="card-text">
           <small class="text-muted">{{ character.created_at }}</small>
         </p>

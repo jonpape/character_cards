@@ -26,18 +26,26 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'character_list' %}">Character Cards</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'character_create' %}">Add Character Card</a>
-          </li>
-          
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'character_create' %}">Add Character Card</a>
+            </li>
+          {% endif %} 
         </ul>
       </div>
       <div class="navbar-search">
+        
         <form method="get" action="{% url 'search_results' %}">
           <input type="text" name="q" placeholder="Search characters...">
           <input type="submit" value="Search">
         </form>
       </div>
+      <div class="navbar-login">
+        {% if user.is_authenticated %}
+          <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+        {% else %}
+          <a class="nav-link" href="{% url 'login' %}">Log In</a>
+        {% endif %}
     </div>
   </nav>
 
