@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-w&&m7921ni9_6$0q(#vo=y#v5-4q#7%-$6^3ucs1sqvw4j6@+d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'recipe_app',
+    'character_app',
     "crispy_forms",  
     "crispy_bootstrap5",
 ]
@@ -62,7 +62,7 @@ ROOT_URLCONF = "character_project.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -71,7 +71,6 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         },
     },
 ]

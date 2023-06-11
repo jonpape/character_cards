@@ -16,22 +16,29 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="{% url 'character_list' %}">Recipe CRUD</a>
+      <a class="navbar-brand" href="{% url 'character_list' %}">SLFCU Character Cards</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'character_list' %}">Character Cards</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'character_create' %}">Add Character Card</a>
-        </li>
-      </ul>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'character_list' %}">Character Cards</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'character_create' %}">Add Character Card</a>
+          </li>
+          
+        </ul>
+      </div>
+      <div class="navbar-search">
+        <form method="get" action="{% url 'search_results' %}">
+          <input type="text" name="q" placeholder="Search characters...">
+          <input type="submit" value="Search">
+        </form>
+      </div>
     </div>
-   </div>
   </nav>
 
 <div class="container mt-4">

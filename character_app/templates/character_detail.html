@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{ character.profile_image.url }}" class="img-fluid rounded-start" alt="{{ character.name}}">
+      <img src="{{ character.lifestyle_image.url }}" class="img-fluid rounded-start" alt="{{ character.name}}">
+      <img src="{{ character.character_image.url }}" class="img-fluid rounded-start" alt="{{ character.name}}">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ character.name|title }}</h5>
+        <p class="card-text">{{ character.position }}</p>
+        <p class="card-text">{{ character.department }}, {{ character.location }}<br />
+        With SLFCU since {{ character.hire_date }}</p>
+        <h5>My superpower:</h5>
+        <p class="card-text">{{ character.superpower }}</p>
+        <h5>My top three skills are:</h5>
+        <p class="card-text">1. {{ character.skill_1 }}<br />
+        2. {{ character.skill_2 }}<br />
+        3. {{ character.skill_3 }}
+        </p>
+        <h5>My motivation at work is:</h5>
+        <p class="card-text">{{ character.motivation }}</p>
+        <h5>Favorite quote to live by:</h5>
+        <p class="card-text">{{ character.quote}}</p>
+        <h5>What makes me feel appreciated:</h5>
+        <p class="card-text">{{ character.appreciation }}</p>
+        <h5>Favorite movie or TV character:</h5>
+        <p class="card-text">{{ character.favorite_character }}</p>
+        <a href="{% url 'character_update' character.id %}" class="btn btn-warning rounded-1">
+          Edit
+        </a>
+        <a href="{% url 'character_delete' character.id %}" class="btn btn-danger rounded-1">
+          Delete
+        </a>
+        <p class="card-text">
+          <small class="text-muted">{{ character.created_at }}</small>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

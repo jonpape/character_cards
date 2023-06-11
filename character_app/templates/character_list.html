@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>Character Cards</h1>
+  <div class="row row-cols-2 row-cols-lg-4 g-sm-2 g-lg-2 mb-4">
+    {% for character in characters %}
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <img src="{{ character.profile_image.url }}" class="card-img-top" alt="{{ character.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ character.name }}</h5>
+          <p class="card-text">{{ character.position|truncatechars:40 }}</p>
+          <p class="card-text">{{ character.department|truncatechars:40 }}, 
+          {{ character.location|truncatechars:40 }}<br />
+          With SLFCU since {{ character.hire_date|truncatechars:40 }}</p>
+          <a href="{% url 'character_detail' character.id %}" class="btn btn-dark">View Character Card</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}
